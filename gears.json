@@ -1,0 +1,5 @@
+{
+    "Report-Freq": 600,
+    "Gears-Server": "https://devices.opswatgears.com",
+    "agent_version": "0.7"
+}

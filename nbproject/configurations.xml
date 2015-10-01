@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="client" displayName="client" projectFiles="true">
+      <itemPath>client/Client.cpp</itemPath>
+      <itemPath>client/Client.h</itemPath>
+      <itemPath>client/Conf.cpp</itemPath>
+      <itemPath>client/Conf.h</itemPath>
+      <itemPath>client/Detect.h</itemPath>
+      <itemPath>client/Detect_linux.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="precomp" displayName="precomp" projectFiles="true">
+      <itemPath>precomp/precomp.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="utils" displayName="utils" projectFiles="true">
+      <logicalFolder name="json11" displayName="json11" projectFiles="true">
+        <itemPath>utils/json11/compat.h</itemPath>
+        <itemPath>utils/json11/json11.cpp</itemPath>
+        <itemPath>utils/json11/json11.hpp</itemPath>
+        <itemPath>utils/json11/json11help.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="os_spec" displayName="os_spec" projectFiles="true">
+        <itemPath>utils/os_spec/StringUtils_linux.h</itemPath>
+      </logicalFolder>
+      <itemPath>utils/EzCurl.cpp</itemPath>
+      <itemPath>utils/EzCurl.h</itemPath>
+      <itemPath>utils/Logging.h</itemPath>
+      <itemPath>utils/StringUtils.h</itemPath>
+      <itemPath>utils/Timer.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>GNU|GNU</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <standard>8</standard>
+          <commandlineTool>g++</commandlineTool>
+          <incDir>
+            <pElem>precomp</pElem>
+          </incDir>
+          <commandLine>-Wall -Wvla -Wno-deprecated -Werror</commandLine>
+        </ccTool>
+        <linkerTool>
+          <output>./gearsd</output>
+          <commandlineTool>g++</commandlineTool>
+          <linkerLibItems>
+            <linkerOptionItem>-lstdc++ -Wl,--no-as-needed</linkerOptionItem>
+            <linkerOptionItem>-lcurl</linkerOptionItem>
+            <linkerOptionItem>-pthread</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <packaging>
+        <packType>Tar</packType>
+        <additionalOptions>--buildroot ${TOP}/${NBTMPDIR}</additionalOptions>
+        <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}"
+                            from="${OUTPUT_PATH}"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+        </packFileList>
+      </packaging>
+      <item path="client/Client.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="client/Client.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="client/Conf.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="client/Conf.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="client/Detect.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="client/Detect_linux.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="precomp/precomp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/EzCurl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="utils/EzCurl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/Logging.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/StringUtils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/Timer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/json11/compat.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/json11/json11.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="utils/json11/json11.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/json11/json11help.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/os_spec/StringUtils_linux.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+          <stripSymbols>true</stripSymbols>
+          <standard>8</standard>
+          <incDir>
+            <pElem>precomp</pElem>
+          </incDir>
+          <commandLine>-Wall -Wvla -Wno-deprecated -Werror</commandLine>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <output>./gearsd</output>
+          <stripSymbols>true</stripSymbols>
+          <linkerLibItems>
+            <linkerOptionItem>-lstdc++ -Wl,--no-as-needed</linkerOptionItem>
+            <linkerOptionItem>-lcurl</linkerOptionItem>
+            <linkerOptionItem>-pthread</linkerOptionItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="client/Client.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="client/Client.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="client/Conf.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="client/Conf.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="client/Detect.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="client/Detect_linux.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="precomp/precomp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/EzCurl.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="utils/EzCurl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/Logging.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/StringUtils.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/Timer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/json11/compat.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/json11/json11.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="utils/json11/json11.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/json11/json11help.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="utils/os_spec/StringUtils_linux.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

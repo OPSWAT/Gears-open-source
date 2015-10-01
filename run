@@ -1,0 +1,13 @@
+# !/bin/sh
+#
+
+Usage="Usage: run <gears shortcode>"
+if [ $# -ne 1 ]
+then
+        echo "$Usage"
+        exit 1
+fi
+
+./gearsd --setting "{\"Gears-Auth\":\"$1\",\"Log-Level\":\"trace\"}" --setting-file ./gears.json
+./gearsd --run --setting-file ./gears.json
+

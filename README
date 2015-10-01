@@ -1,0 +1,108 @@
+
+            OPSWAT Gears Agent - Community Version
+
+
+
+What is it?
+-----------
+
+OPSWAT Gears is a monitoring and management product that provides
+device visibility and compliance reporting for corporate-owned
+and BYOD devices. It collects basic information about the system.
+It does not collect personal or sensitive information. All data
+is transmitted using TLS encryption to Gears servers where it is
+used to compute device compliance against a security policy baseline.
+
+This is the open source version of the end-point agent.
+It provides almost all of the same functionality as the closed-
+source version except it does not include a copy of the OESIS
+libraries for detection and manageability, specifically for
+antivirus-related features and firewall-related features.
+
+
+The Latest Version
+------------------
+
+The open-source version of the app does not auto-update. The latest
+version is available in the source code repository.
+
+
+Documentation
+-------------
+
+Light documentation is available online by visiting:
+    https://www.opswatgears.com/
+    https://gears.opswat.com/developers/docs
+
+See detect/Detect_Linux.cpp for information about implementing
+your own reporting to Gears Cloud Platform.
+
+
+Installation
+------------
+
+Please run ./build to build gearsd
+Then run ./run with your Gears registration code as the first parameter
+
+
+Licensing
+---------
+
+Please see the file called LICENSE.
+
+
+What the agent can do
+----------------------
+
+o Register to Gears cloud by short code
+o Send ping command to say hello to Gears cloud
+o Send health report to the cloud.
+o Retire removing itself from cloud.
+
+
+Code structure
+--------------
+
+.
+|-- "README" -> this file
+|-- "build" -> build gearsd
+|-- "run" -> run with your Gears Shortcode as first parameter
+|-- "LICENSE" -> license file
+|-- "gears.json" -> gears config setting file
+|-- "client"
+|   |-- "Client.cpp" -> including main function, executing command, running agent, registering client, sending keepalive, sending health report
+|   |-- "Client.h" -> defining log dir and configuration file name
+|   |-- "Conf.cpp" -> used to set logging location, get/set gears settings from gears.json file
+|   |-- "Conf.h"
+|   |-- "Detect.h"
+|   `-- "Detect_linux.cpp" -> provide info about implementing your own reporting to Gears Cloud Platform.
+|-- "nbproject" -> netbean project directory
+|-- "precomp" -> including all necessary header files for using precompiled headers
+`-- "utils"
+	|-- "EzCurl.cpp" -> wrapper class using curl library to connect and send information to cloud  
+	|-- "EzCurl.h"
+	|-- "json11" -> json library
+	|   |-- "compat.h"
+	|   |-- "json11.cpp"
+	|   |-- "json11help.h"
+	|   `-- "json11.hpp"
+	|-- "Logging.h" -> used to create and make log info more attractive, easy to read by using json format
+        |-- "optionparser" -> used to parse the command line, run gearsd --help for more detail
+	|   |-- "JsonOptionParser.h"
+	|   `-- "optionparser.h"
+        |-- "StringUtils.h" -> common string utils
+         `-- "Timer.h" -> class used to make timer for each routine including register, keepalive, health report
+
+
+Contacts
+--------
+
+o If you want to be informed about new releases, general news and 
+   more about OPSWAT Gears, follow the blog at:
+      https://www.opswatgears.com/blog
+ 
+o If you want support for running OPSWAT Gears please see the
+   resources at:
+      https://www.opswatgears.com/support
+
+
